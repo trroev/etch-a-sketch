@@ -1,43 +1,23 @@
 const container = document.getElementById('container');
 const slider = document.getElementById('slider');
 const chooseColor = document.getElementById('choose-color');
-const clearBtn = document.getElementById('clear');
 const sliderValue = document.getElementById('slider-value');
+const clear = document.getElementById('clear');
 
 slider.addEventListener('mouseup', gridSize);
 chooseColor.addEventListener('input', draw);
+clear.addEventListener('click', clearGrid);
 
 function grid(area) {
     for (i = 0; i < (area * area); i++) {
-        const div = document.createElement('div');
+        const divs = document.createElement('div');
         container.style.gridTemplateColumns = `repeat(${area}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${area}, 1fr)`;
-        container.appendChild(div).classList.add('grid-item')
+        container.appendChild(divs).classList.add('grid-item');
+        divs.addEventListener('mouseover', draw);
     }
-    let gridItems = container.querySelectorAll('div');
-    gridItems.forEach(gridItem => gridItem.addEventListener('mouseover', draw));
 };
-
 grid(16);
-
-function gridSize() {
-    let gridItems = container.querySelectorAll('div');
-    gridItems.forEach(gridItem => gridItem.remove());
-    grid(slider.value);
-}
-
-slider.oninput = function() {
-    sliderValue.innerHTML = `${this.value} x ${this.value}`;
-}
-
-function clear() {
-    const divs = container.querySelectorAll('div');
-    clearBtn.addEventListener('click', () => {
-        divs.forEach(div => div.style.backgroundColor = '#fff8dc')
-    })
-}
-clear();
-
 
 function draw(e) {
     const divs = container.querySelectorAll('div');
@@ -55,6 +35,26 @@ function draw(e) {
         } else if (event.target.id === 'erase') {
             divs.forEach(div => div.addEventListener('mouseover', () =>
             div.style.backgroundColor = '#fff8dc'))
+        } else {
+            divs.forEach(div => div.addEventListener('mouseover', () =>
+            div.style.backgroundColor = '#000000'))
         }
     })
+}
+draw();
+
+function gridSize() {
+    container.innerHTML = '';
+    let gridItems = container.querySelectorAll('div');
+    gridItems.forEach(gridItem => gridItem.remove());
+    grid(slider.value);
+}
+
+slider.oninput = function() {
+    sliderValue.innerHTML = `${this.value} x ${this.value}`;
+}
+
+function clearGrid() {
+    const divs = container.querySelectorAll('div');
+    divs.forEach(div => div.style.backgroundColor = '#fff8dc');
 }
