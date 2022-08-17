@@ -6,7 +6,7 @@
     font-family: inherit;
     box-sizing: border-box;
 }
-
+ 
 body {
     margin: 0;
     display: flex;
@@ -19,26 +19,35 @@ body {
 }
 
 .header {
-    color: #fff9f3;
-    text-align: center;
-    font-size: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5em;
+    max-height: 10.9rem;
     width: 100%;
+    color: #fff9f3;
+    font-size: calc(7vw + 1rem);
     background-color: rgba(0, 0, 0, .6);
+    margin: 0;
+    padding: 1rem 1.5rem;
 }
 
 .main-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 6.25rem;
     width: 100%;
     margin: auto;
+    padding: 1rem 1.5rem;
 }
 
 .grid-container {
     display: grid;
-    width: 36em;
-    height: 36em;
+    width: 55vw;
+    height: 55vw;
+    max-width: 40rem;
+    max-height: 40rem;
     border-radius: 3px;
     background-color: cornsilk;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -49,8 +58,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 51px;
-    width: 220px;
+    gap: 3.125rem;
+    width: 13.75rem;
+}
+
+.slide-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 #slider {
@@ -121,17 +137,19 @@ button:hover {
 
 .footer {
     display: flex;
-    margin-top: auto;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    height: 2.5em;
+    width: 100%;
+    margin-top: auto;
+    font-size: calc(1vw + 0.75rem);
     color: #fff9f3;
     background-color: rgba(0, 0, 0, .6);
 }
 
 .fa-github {
     color: #fff9f3;
-    font-size: 1.6rem;
+    font-size: calc(1vw + 0.75rem);
     transition: transform 0.7s ease-in-out;
 }
 
