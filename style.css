@@ -1,16 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f0f0f5;
-    font-family: Andale Mono, monospace;
+    background-color: #fff9f3;
+    font-family: "Karla", sans-serif;
     line-height: 1.2;
 }
 
-.title {
+.header {
+    color: #fff9f3;
     text-align: center;
-    font-size: 4em;
+    font-size: 6em;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
 }
 
 .main-container {
@@ -18,21 +31,20 @@ body {
     align-items: center;
     justify-content: center;
     gap: 100px;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    margin: auto;
 }
 
-#container {
+.grid-container {
     display: grid;
     width: 36em;
     height: 36em;
-    border: 2px solid #f76707;
     border-radius: 3px;
     background-color: cornsilk;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#settings {
+.settings {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,7 +88,7 @@ input {
 
 button {
     padding: 6px 12px;
-    border: 2px solid #f76707;
+    border: none;
     border-radius: 3px;
 }
 
@@ -94,11 +106,12 @@ button:hover {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 110px;
-    height: 60px;
+    width: 10rem;
+    height: 3.75rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    box-shadow: none;
 }
 
 #choose-color::-webkit-color-swatch {
@@ -108,7 +121,20 @@ button:hover {
 
 .footer {
     display: flex;
-    margin-top: push;
+    margin-top: auto;
     align-items: center;
     justify-content: center;
+    font-size: 1.25rem;
+    color: #fff9f3;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.fa-github {
+    color: #fff9f3;
+    font-size: 1.6rem;
+    transition: transform 0.7s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotateY(360deg) scale(1.15);
 }
